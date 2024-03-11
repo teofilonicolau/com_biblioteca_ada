@@ -2,6 +2,8 @@ package com.biblioteca.ada.controller;
 
 import com.biblioteca.ada.model.Membro;
 import com.biblioteca.ada.service.MembroService;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -10,6 +12,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/membros")
 public class MembroController {
+    Logger logger = LogManager.getLogger(MembroController.class);
 
     private final MembroService membroService;
 

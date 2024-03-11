@@ -2,6 +2,8 @@ package com.biblioteca.ada.controller;
 
 import com.biblioteca.ada.model.Livro;
 import com.biblioteca.ada.service.LivroService;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -10,6 +12,8 @@ import java.util.List;
 @RestController
 @RequestMapping("/livros")
 public class LivroController {
+    Logger logger = LogManager.getLogger(LivroController.class);
+
 
     private final LivroService livroService;
 

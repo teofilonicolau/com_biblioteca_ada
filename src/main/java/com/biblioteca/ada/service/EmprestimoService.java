@@ -1,44 +1,22 @@
 package com.biblioteca.ada.service;
 
-import com.biblioteca.ada.model.Emprestimo;
-import com.biblioteca.ada.repository.EmprestimoRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
+import com.biblioteca.ada.model.dto.EmprestimoDTO;
+import jakarta.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
 
-@Service
-public class EmprestimoService {
+public interface EmprestimoService {
 
-    private final EmprestimoRepository emprestimoRepository;
+    List<EmprestimoDTO> getAllEmprestimos();
 
-    @Autowired
-    public EmprestimoService(EmprestimoRepository emprestimoRepository) {
-        this.emprestimoRepository = emprestimoRepository;
-    }
+    Optional<EmprestimoDTO> getEmprestimoById(Long id);
 
-    public List<Emprestimo> getAllEmprestimos() {
-        return emprestimoRepository.findAll();
-    }
+    EmprestimoDTO createEmprestimo(EmprestimoDTO emprestimo);
 
-    public Optional<Emprestimo> getEmprestimoById(Long id) {
-        return emprestimoRepository.findById(id);
-    }
+    EmprestimoDTO updateEmprestimo(Long id, EmprestimoDTO emprestimo);
 
-    public Emprestimo createEmprestimo(Emprestimo emprestimo) {
-        return emprestimoRepository.save(emprestimo);
-    }
+    void deleteEmprestimo(Long id);
 
-    public Emprestimo updateEmprestimo(Long id, Emprestimo emprestimo) {
-        if (emprestimoRepository.existsById(id)) {
-            emprestimo.setId(id);
-            return emprestimoRepository.save(emprestimo);
-        }
-        return null;
-    }
-
-    public void deleteEmprestimo(Long id) {
-        emprestimoRepository.deleteById(id);
-    }
+    @Transactional
+    EmprestimoDTO realizarDevolucao(Long id);
 }

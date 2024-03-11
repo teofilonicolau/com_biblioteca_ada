@@ -22,5 +22,15 @@ public class Livro extends BibliotecaEntity {
     @OneToMany(mappedBy = "livro")
     private List<Emprestimo> emprestimos;
 
+    private boolean disponivel;
+
+    public boolean isDisponivel() {
+        return disponivel;
+    }
+
+    public void setDisponivel(boolean disponivel) {
+        this.disponivel = disponivel;
+    }
+
 
 }

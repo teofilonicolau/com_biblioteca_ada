@@ -24,5 +24,8 @@ public class Emprestimo extends BibliotecaEntity {
 
     private LocalDate prazoDevolucao;
 
+    private LocalDate dataDevolucao;
+
     private boolean devolvido;
 }
+
