@@ -7,7 +7,7 @@ import java.util.List;
 
 @Data
 @Entity
-public class Membro {
+public class Membro extends BibliotecaEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -15,11 +15,11 @@ public class Membro {
 
     private String nome;
     private String endereco;
-    private String contato;
+    private String fone;
+    private String email;
 
     @OneToMany(mappedBy = "membro")
     private List<Emprestimo> emprestimos;
 }
 
 
-}

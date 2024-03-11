@@ -8,7 +8,7 @@ import java.util.List;
 
 @Data
 @Entity
-public class Livro {
+public class Livro extends BibliotecaEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
