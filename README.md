@@ -112,11 +112,26 @@ O uso de design de classes e a estrutura do código indicam aderência a princí
   - Método: POST
   - URL: http://localhost:8080/emprestimos
   - ![image](https://github.com/teofilonicolau/com_biblioteca_ada/assets/97030160/f321c12a-6f31-4198-8fd8-8733e2f089dc)
+  - ![image](https://github.com/teofilonicolau/com_biblioteca_ada/assets/97030160/7c0113c6-f57d-4621-9553-42523d164be8)
+
 
 - Realizar Devolução
   - Método: PUT
   - URL: http://localhost:8080/emprestimos/{id}/devolucao (http://localhost:8080/emprestimos/12/devolucao)
   - ![image](https://github.com/teofilonicolau/com_biblioteca_ada/assets/97030160/f46ff1cc-45a4-454b-b7ac-4eeaff712035)
+  - ![image](https://github.com/teofilonicolau/com_biblioteca_ada/assets/97030160/527eaa78-33e0-42a6-8e1a-b88c9f467656)
+ 
+  - Criar um empréstimo atrasado:
+
+- Método: POST
+- URL: http://localhost:8080/emprestimos:(http://localhost:8080/emprestimos)
+- ![image](https://github.com/teofilonicolau/com_biblioteca_ada/assets/97030160/1836cc8b-4305-4289-abfe-c9ace3f59739)
+
+- Obter informações de multa:(Preciso fazer ajustes pra retornar as multas)
+- Método: GET
+- URL: http://localhost:8080/emprestimos/1/multa (http://localhost:8080/emprestimos/17/multa)
+- ![image](https://github.com/teofilonicolau/com_biblioteca_ada/assets/97030160/de98c393-ec88-4d6e-af36-8d872ddbc994)
+
 
 - Deletar Empréstimo por ID
   - Método: DELETE
