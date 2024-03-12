@@ -16,10 +16,19 @@
 - **Nice to have**
   - Gestão de Empréstimos
   - Registrar empréstimos de livros aos membros.
-  - Definir prazo para devolução e gerenciar multas por atraso
+  - Definir prazo para devolução e gerenciar multas por atraso (Não implementado ainda)
 
-### Resumo da Aplicação
-A Biblioteca é uma aplicação de gerenciamento de livros, membros e empréstimos. Através desta aplicação, é possível realizar operações CRUD (Create, Read, Update, Delete) para as entidades principais: Livro, Membro e Empréstimo.
+### Resumo da Aplicação:
+-O projeto é uma aplicação de uma biblioteca com funcionalidades CRUD para livros, membros e empréstimos. 
+A aplicação utiliza Spring Boot e possui integração com um banco de dados PostgreSQL, sendo possível executar o banco de dados em um container Docker.
+### Docker e PostgreSQL
+##### Docker: A aplicação utiliza Docker para facilitar o ambiente de desenvolvimento e garantir consistência na execução do PostgreSQL.
+##### O código busca seguir  boas práticas de desenvolvimento, SOLID e Clean Code em grande parte. 
+O uso de design de classes e a estrutura do código indicam aderência a princípios como SRP e OCP.
+#### Usamos o Insomnia para os testes
+
+![image](https://github.com/teofilonicolau/com_biblioteca_ada/assets/97030160/e0c9a6b2-5588-45ab-9327-de7c921a7946)
+
 
 #### Endpoints Disponíveis
 
