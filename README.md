@@ -23,6 +23,8 @@
 A aplicação utiliza Spring Boot e possui integração com um banco de dados PostgreSQL, sendo possível executar o banco de dados em um container Docker.
 ### Docker e PostgreSQL
 ##### Docker: A aplicação utiliza Docker para facilitar o ambiente de desenvolvimento e garantir consistência na execução do PostgreSQL.
+ - Acessar o Banco de Dados no Docker : docker exec -it 0787305c3470 psql -U postgres -d biblioteca_db
+
 ##### O código busca seguir  boas práticas de desenvolvimento, SOLID e Clean Code em grande parte. 
 O uso de design de classes e a estrutura do código indicam aderência a princípios como SRP e OCP.
 #### Usamos o Insomnia para os testes
