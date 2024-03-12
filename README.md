@@ -16,7 +16,7 @@
 - **Nice to have**
   - Gestão de Empréstimos
   - Registrar empréstimos de livros aos membros.
-  - Definir prazo para devolução e gerenciar multas por atraso (Não implementado ainda)
+  - Definir prazo para devolução e gerenciar multas por atraso 
 
 ### Resumo da Aplicação:
 -O projeto é uma aplicação de uma biblioteca com funcionalidades CRUD para livros, membros e empréstimos. 
