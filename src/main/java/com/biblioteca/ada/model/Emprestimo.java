@@ -1,5 +1,6 @@
 package com.biblioteca.ada.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -16,6 +17,7 @@ public class Emprestimo extends BibliotecaEntity {
     @JoinColumn(name = "livro_id")
     private Livro livro;
 
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "membro_id")
     private Membro membro;

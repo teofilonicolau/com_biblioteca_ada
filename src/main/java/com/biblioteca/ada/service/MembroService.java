@@ -7,6 +7,8 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
+import java.util.stream.StreamSupport;
 
 @Service
 public class MembroService {
@@ -19,7 +21,10 @@ public class MembroService {
     }
 
     public List<Membro> getAllMembros() {
-        return membroRepository.findAll();
+        Iterable<Membro> membrosIterable = membroRepository.findAll();
+        List<Membro> membros = StreamSupport.stream(membrosIterable.spliterator(), false)
+                .collect(Collectors.toList());
+        return membros;
     }
 
     public Optional<Membro> getMembroById(Long id) {

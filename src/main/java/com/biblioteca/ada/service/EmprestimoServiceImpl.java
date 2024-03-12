@@ -14,6 +14,7 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
+import java.util.stream.StreamSupport;
 
 @Service
 public class EmprestimoServiceImpl implements EmprestimoService {
@@ -31,7 +32,9 @@ public class EmprestimoServiceImpl implements EmprestimoService {
 
     @Override
     public List<EmprestimoDTO> getAllEmprestimos() {
-        List<Emprestimo> emprestimos = emprestimoRepository.findAll();
+        Iterable<Emprestimo> emprestimosIterable = emprestimoRepository.findAll();
+        List<Emprestimo> emprestimos = StreamSupport.stream(emprestimosIterable.spliterator(), false)
+                .collect(Collectors.toList());
         return emprestimos.stream()
                 .map(this::convertToDTO)
                 .collect(Collectors.toList());

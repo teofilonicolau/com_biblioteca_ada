@@ -1,7 +1,7 @@
 package com.biblioteca.ada.repository;
 
 import com.biblioteca.ada.model.Membro;
-import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.repository.CrudRepository;
 
-public interface MembroRepository extends JpaRepository<Membro, Long> {
+public interface MembroRepository extends CrudRepository<Membro, Long> {
 }

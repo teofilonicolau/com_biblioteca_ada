@@ -1,7 +1,8 @@
 package com.biblioteca.ada.repository;
 
 import com.biblioteca.ada.model.Emprestimo;
-import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.repository.CrudRepository;
 
-public interface EmprestimoRepository extends JpaRepository<Emprestimo, Long> {
+
+public interface EmprestimoRepository extends CrudRepository<Emprestimo, Long> {
 }
