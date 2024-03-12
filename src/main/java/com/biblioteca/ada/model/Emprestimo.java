@@ -29,5 +29,13 @@ public class Emprestimo extends BibliotecaEntity {
     private LocalDate dataDevolucao;
 
     private boolean devolvido;
+
+    @Column(name = "multa_valor")
+    private Double multaValor;
+
+    @Column(name = "data_pagamento_multa")
+    private LocalDate dataPagamentoMulta;
+
+
 }
 

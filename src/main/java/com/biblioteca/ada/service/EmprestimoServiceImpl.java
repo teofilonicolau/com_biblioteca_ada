@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -22,6 +23,8 @@ public class EmprestimoServiceImpl implements EmprestimoService {
     private final EmprestimoRepository emprestimoRepository;
     private final LivroRepository livroRepository;
     private final ModelMapper modelMapper;
+
+    private static final double MULTA_DIARIA = 1.0;
 
     @Autowired
     public EmprestimoServiceImpl(EmprestimoRepository emprestimoRepository, LivroRepository livroRepository, ModelMapper modelMapper) {
@@ -48,8 +51,11 @@ public class EmprestimoServiceImpl implements EmprestimoService {
 
     @Override
     public EmprestimoDTO createEmprestimo(EmprestimoDTO emprestimoDTO) {
+        emprestimoDTO.setPrazoDevolucao(calculaPrazoDevolucao());
+
         Emprestimo emprestimo = convertToEntity(emprestimoDTO);
         Emprestimo savedEmprestimo = emprestimoRepository.save(emprestimo);
+
         return convertToDTO(savedEmprestimo);
     }
 
@@ -83,9 +89,19 @@ public class EmprestimoServiceImpl implements EmprestimoService {
                     return null;
                 }
 
+
                 emprestimo.setDevolvido(true);
                 emprestimo.setDataDevolucao(LocalDate.now());
+
                 livro.setDisponivel(true);
+
+                LocalDate prazoDevolucao = emprestimo.getPrazoDevolucao();
+                if (LocalDate.now().isAfter(prazoDevolucao)) {
+                    long diasAtraso = ChronoUnit.DAYS.between(prazoDevolucao, LocalDate.now());
+                    double multaValor = diasAtraso * MULTA_DIARIA;
+                    emprestimo.setMultaValor(multaValor);
+                    emprestimo.setDataPagamentoMulta(null);
+                }
 
                 emprestimoRepository.save(emprestimo);
                 livroRepository.save(livro);
@@ -97,6 +113,7 @@ public class EmprestimoServiceImpl implements EmprestimoService {
         return null;
     }
 
+
     private EmprestimoDTO convertToDTO(Emprestimo emprestimo) {
         return modelMapper.map(emprestimo, EmprestimoDTO.class);
     }
@@ -104,4 +121,11 @@ public class EmprestimoServiceImpl implements EmprestimoService {
     private Emprestimo convertToEntity(EmprestimoDTO emprestimoDTO) {
         return modelMapper.map(emprestimoDTO, Emprestimo.class);
     }
+
+    private LocalDate calculaPrazoDevolucao() {
+        return LocalDate.now().plusDays(14);
+
+
+    }
 }
+

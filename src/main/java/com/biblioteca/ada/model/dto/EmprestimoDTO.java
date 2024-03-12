@@ -13,5 +13,17 @@ public class EmprestimoDTO {
     private LocalDate dataDevolucao;
     private boolean devolvido;
 
+    private Double multaValor;
+    private LocalDate dataPagamentoMulta;
+
+    public Double getMultaValor() {
+        return this.multaValor;
+    }
+
+    public LocalDate getDataPagamentoMulta() {
+        return this.dataPagamentoMulta;
+    }
+
+
 
 }
