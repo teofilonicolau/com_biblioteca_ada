@@ -1,6 +1,9 @@
 # Desafio Final - Formação em Desenvolvimento Web Java - Módulo II
 ## Ser + Tech Programa 50+ Turma - 1076
 ## Professores: Alex Facincani e Luis Carlos Cardoso
+## Equipe :
+- Paulo Roberto de Paula
+- Teófilo Nicolau
 
 ## Sistema de Biblioteca:
 
